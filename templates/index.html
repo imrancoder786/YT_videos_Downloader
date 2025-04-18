@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTube Videos Downloader</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='mylogo.png') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+      <div class="com">
+        <h1 class="main-title"><span class="icon">▶️</span> YouTube Videos Downloader</h1>
+        <h2>Download YT Videos and Audio from YouTube</h2>
+        <h3 class='typing-text'>Developed by IMRANKHAN.I</h3>
+        <form method="POST">
+          <input type="text" name="yt_link" placeholder="Paste your YouTube video link" required>
+          <button type="submit">Prepare Download Options</button>
+        </form>
+
+        
+        {% if video_data %}
+        <div class="result" id="result">
+          <h4 class="success">🎉 Video Found: {{ video_data.title }}</h4>
+          <div class="thumbnail-container">
+              <img src="{{ video_data.thumbnail }}">
+              <p>⏱ Duration: {{ video_data.duration }}</p>
+          </div>
+
+          <div class="warning-box">
+            <strong>Note *</strong> Press Download Button Then (going to download page) click the Three Dot on Bottom right corner and select download
+          </div>
+  
+
+          <h3>🎞️ Video (mp4):</h3>
+          {% for video in video_data.video_formats %}
+          <a href="{{ video.url }}" download target="_blank" >
+                  <button class="downloadvideo">
+                      📥 Download ({{ video.resolution }} - {{ video.ext }} - 
+                      {{ (video.filesize / (1024*1024)) | round(2) if video.filesize else 'Unknown' }} MB)
+                  </button>
+              </a>
+          {% endfor %}
+
+          <h3>🎧 Audio (mp3):</h3>
+          {% for audio in video_data.audio_formats %}
+              <a href="{{ audio.url }}" download target="_blank">
+                  <button class="downloadaudio">
+                      🎵 Download ({{ audio.abr }} kbps - {{ audio.ext }} - 
+                      {{ (audio.filesize / (1024*1024)) | round(2) if audio.filesize else 'Unknown' }} MB)
+                  </button>
+              </a>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>  
+
+      
+
+      <div class="contact">
+        <h2>Contact Me:</h2>
+        <p><em>Any Suggestion about the website or Bug Report please<strong>Contact Me :</strong></em></p>
+        <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+        <style>
+          @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+          
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          
+          html, body {
+            display: grid;
+            height: 100%;
+            width: 100%;
+            font-family: "Poppins", sans-serif;
+            place-items: center;
+        
+
+          }
+          
+          .wrapper {
+            display: inline-flex;
+            list-style: none;
+          }
+          
+          .wrapper .icon {
+            position: relative;
+            background: #ffffff;
+            border-radius: 50%;
+            padding: 15px;
+            margin: 10px;
+            width: 50px;
+            height: 50px;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          }
+          
+          .wrapper .tooltip {
+            position: absolute;
+            top: 0;
+            font-size: 14px;
+            background: #ffffff;
+            color: #ffffff;
+            padding: 5px 8px;
+            border-radius: 5px;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          }
+          
+          .wrapper .tooltip::before {
+            position: absolute;
+            content: "";
+            height: 8px;
+            width: 8px;
+            background: #ffffff;
+            bottom: -3px;
+            left: 50%;
+            transform: translate(-50%) rotate(45deg);
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          }
+          
+          .wrapper .icon:hover .tooltip {
+            top: -45px;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+          }
+          
+          .wrapper .icon:hover span,
+          .wrapper .icon:hover .tooltip {
+            text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+          }
+          
+          .instagram { --color: #e4405f; }
+          .github { --color: #333333; }
+          .gmail { --color: #ea4335; }
+          .linkedin { --color: #0077b5; }
+          
+          .icon:hover,
+          .icon:hover .tooltip,
+          .icon:hover .tooltip::before {
+            background: var(--color);
+            color: white;
+          }
+          </style>
+          
+        <ul class="wrapper">
+          <a href="https://www.linkedin.com/in/imrankhan-developer/" target="_blank">
+            <li class="icon linkedin">
+              <span class="tooltip">LinkedIn</span>
+              <span><i class="fab fa-linkedin"></i></span>
+            </li>
+          </a>
+        
+          <a href="https://github.com/imrancoder786" target="_blank">
+            <li class="icon github">
+              <span class="tooltip">Github</span>
+              <span><i class="fab fa-github"></i></span>
+            </li>
+          </a>
+        
+          <a href="mailto:laptop14072024@gmail.com">
+            <li class="icon gmail">
+              <span class="tooltip">Gmail</span>
+              <span><i class="fas fa-envelope"></i></span>
+            </li>
+          </a>
+        
+          <a href="https://www.instagram.com/imrankhan.i_?igsh=MWliM3Fjd3hlN200aw==" target="_blank">
+            <li class="icon instagram">
+              <span class="tooltip">Instagram</span>
+              <span><i class="fab fa-instagram"></i></span>
+            </li>
+          </a>
+        </ul>
+      </div>
+    </div>
+
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

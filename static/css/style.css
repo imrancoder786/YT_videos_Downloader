@@ -1,0 +1,166 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    
+    
+ }
+
+ 
+  
+  .container {
+    max-width: 600px;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .thumbnail-container img {
+    max-width: 83%;
+    border-radius: 20px;
+ }
+ .loader {
+  margin-top: 20px;
+  text-align: center;
+}
+.success{
+  color: limegreen; /* Bright green */
+    text-shadow: 
+      -1px -1px 0 #000,  
+       1px -1px 0 #000,
+      -1px  1px 0 #000,
+       1px  1px 0 #000;
+}
+
+.spinner {
+  margin: 0 auto 10px auto;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #00ffff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+  .icon {
+    font-size: 40px;
+    vertical-align: middle;
+
+  }
+  
+  .developer {
+    color: magenta;
+  }
+  
+  .developer .name {
+    background: linear-gradient(to right, cyan, limegreen);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    margin-top: 15px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+  }
+  .downloadaudio{
+    margin-top: 15px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: rgb(162, 0, 255);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+
+  }
+  .downloadvideo{
+    margin-top: 15px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: rgb(0, 255, 17);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .contact {
+    margin-top: 40px;
+  }
+  
+  .icons a img {
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    transition: transform 0.2s ease;
+  }
+  
+  .icons a:hover img {
+    transform: scale(1.1);
+  }
+  @keyframes typing {
+    from { width: 0ch; }
+    to { width: 30ch; }
+}
+
+.warning-box {
+  background-color: #fff8dc; /* light yellow background */
+  color: #8b4513; /* dark golden brown text */
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: fit-content;
+  margin: 20px auto;
+}
+ 
+.typing-text {
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: 700;
+    background: linear-gradient(to right, #FF00FF, #00FFFF, #FFD700);
+    border-right:0.10em solid red;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0ch;
+    animation: typing 6s steps(30) infinite alternate-reverse;
+    display: inline-block; /* Important for gradient to apply correctly */
+}
